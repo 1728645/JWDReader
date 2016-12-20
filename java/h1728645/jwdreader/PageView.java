@@ -29,6 +29,7 @@ public class PageView extends TextView {
     private Point text_matrix_size = new Point(0,0);
     private int ruby_margin = 0;
     private int ruby_size = 0;
+    private int page_num = 0;
     private PageContent page_content;
 
     public boolean isDictMode() {
@@ -131,7 +132,7 @@ public class PageView extends TextView {
         int first_line_offset = 0;
         if(token.getPosition() > 0){
             if(start_pos > 0){
-                first_line_offset = token.getPosition() + text.length() - start_pos;
+                first_line_offset = token.getPosition() + start_pos;
             }
             else{
                 first_line_offset = token.getPosition();

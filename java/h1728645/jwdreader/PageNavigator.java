@@ -1,6 +1,7 @@
 package h1728645.jwdreader;
 
 
+import java.util.List;
 import java.util.ListIterator;
 
 /**
@@ -12,13 +13,9 @@ class PageNavigator {
 
     private ListIterator<PageContent> current_page;
 
-    PageNavigator(ListIterator<PageContent> current_page){
-        this.current_page = current_page;
+    PageNavigator(List<PageContent> page_list, int last_reading_pos){
+        current_page = page_list.listIterator(last_reading_pos);
     }
-
-    /*public PageNavigator(){
-        //this.current_page = new Iterator<>();
-    }*/
 
     PageContent currentPage(){
         PageContent display_page = current_page.next();
