@@ -89,6 +89,14 @@ public class PageView extends TextView {
         this.text_matrix_size = text_matrix_size;
     }
 
+    public int getPageNum() {
+        return page_num;
+    }
+
+    public void setPageNum(int page_num) {
+        this.page_num = page_num;
+    }
+
     public PageView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
@@ -106,9 +114,12 @@ public class PageView extends TextView {
     @Override
     protected void onDraw(Canvas canvas) {
         final TextPaint paint = getPaint();
+        paint.setTextSize(real_text_size/2);
+        canvas.drawText(" " + page_content.getPageNum() + " / " + page_num, 0, this.getBottom(), paint);
+
         paint.setTextSize(real_text_size);
-        canvas.translate(this.getRight() - real_text_size - ruby_margin -real_text_size/2,
-                real_text_size + real_text_size /2);
+        canvas.translate(this.getRight() - real_text_size - ruby_margin,
+                real_text_size);
         if (page_content == null) {
             return;
         }
